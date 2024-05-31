@@ -45,12 +45,12 @@ Describe aquí los endpoints disponibles en tu API, junto con sus métodos HTTP,
 
 Ejemplo:
 
--  `POST /games`: Crea un nuevo usuario.
--  `GET /games/:id`: Obtiene un usuario por su ID.
--  `GET /games`: Obtiene todos los usuarios.
--  `PUT /games/:id`: Actualiza un usuario existente.
--  `DELETE /games/:id`: Elimina un usuario.
--  `GET /games/name:name`: Obtiene un usuario por su nombre.
+-  `POST /games`: Crea un nuevo objeto de juego.
+-  `GET /games/:id`: Obtiene un juego por su ID.
+-  `GET /games`: Obtiene todos los juegos que este en el base de datos.
+-  `PUT /games/:id`: Actualiza un juego existente.
+-  `DELETE /games/:id`: Elimina un juego.
+-  `GET /games/name:name`: Obtiene un juego por su nombre.
 
 ## Estructura del Proyecto
 
