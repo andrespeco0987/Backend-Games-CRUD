@@ -1,0 +1,33 @@
+{
+  "name": "backend-proyect-crud",
+  "version": "1.0.0",
+  "description": "This is a project in which an API is being created using framewords and as a base javascript as a programming language that contains information about games, using methods to make a request and give a response.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "backend",
+    "javascript",
+    "crud",
+    "express",
+    "mongo db",
+    "mongoose",
+    "morgan",
+    "dotenv"
+  ],
+  "author": "Andres Felipe Rangel Peña",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.2"
+  }
+}
