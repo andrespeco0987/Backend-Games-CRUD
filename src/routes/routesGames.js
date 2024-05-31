@@ -1,11 +1,12 @@
 import { Router } from "express";
-import DriversGames from "../drivers/diversGames.js";
+import DriversGames from "../drivers/driversGames.js";
 
 const routesGames = Router();
 
 routesGames.post("/", DriversGames.createGame);
 routesGames.get("/:id", DriversGames.readGame);
 routesGames.get("/", DriversGames.readAllGames);
+routesGames.get("/name/:name", DriversGames.readByName);
 routesGames.put("/:id", DriversGames.updateGame);
 routesGames.delete("/:id", DriversGames.deleteGame);
 

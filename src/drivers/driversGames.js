@@ -1,3 +1,4 @@
+import gameModel from "../model/gameModel.js";
 import GameModel from "../model/gameModel.js";
 
 const DriversGames = {
@@ -54,21 +55,45 @@ const DriversGames = {
 			});
 		}
 	},
+	readByName: async (req, res) => {
+		try {
+			const gameName = req.params.name;
+			const game = await gameModel.findOne({ name: gameName });
+
+			if (game) {
+				res.status(200).json(game);
+			} else {
+				res.status(404).json({ mensaje: "Juego no encontrado" });
+			}
+		} catch (error) {
+			res.status(500).json({ mensaje: "Error del servidor", error: error.message });
+		}
+	},
 	updateGame: async (req, res) => {
 		try {
-			const updatedGame = await GameModel.findByIdAndUpdate(req.params.id, req.body);
-			if (updatedGame._id) {
+			const updatedGame = await GameModel.findByIdAndUpdate(req.params.id, req.body, {
+				new: true,
+				runValidators: true,
+				omitUndefined: true
+			});
+
+			if (updatedGame) {
 				res.json({
 					result: "All good",
 					message: "The game was updated in the database",
-					data: updatedGame._id
+					data: updatedGame
+				});
+			} else {
+				res.status(404).json({
+					result: "Not Found",
+					message: "The game was not found in the database"
 				});
 			}
 		} catch (error) {
-			res.json({
+			res.status(500).json({
 				result: "There was a mistake",
 				message: "There was an error, the game was not updated and it will have the previous data",
-				data: error
+				data: error.message
 			});
 		}
 	},
